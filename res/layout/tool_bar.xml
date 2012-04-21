@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:cacheColorHint="#00000000">
+
+	<ImageView android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:src="@drawable/tool_w2b"
+		android:paddingTop="4dp" />
+
+
+	<LinearLayout android:id="@+id/edit_tools_main"
+		android:orientation="horizontal" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:cacheColorHint="#00000000"
+		android:visibility="visible" android:layout_alignParentRight="true">
+
+		<Button android:id="@+id/b_edit" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:background="@drawable/button_tool_edit_list" />
+	</LinearLayout>
+
+
+	<LinearLayout android:id="@+id/edit_tools"
+		android:orientation="horizontal" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:cacheColorHint="#00000000"
+		android:visibility="gone" android:layout_alignParentRight="true">
+
+		<Button android:id="@+id/b_import_list" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:background="@drawable/button_tool_import" />
+
+		<Button android:id="@+id/b_clear" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:background="@drawable/button_tool_clear" />
+
+		<ImageView android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:src="@drawable/tool_separator" />
+
+		<Button android:id="@+id/b_back_to_list" android:layout_width="wrap_content"
+			android:layout_height="wrap_content" android:background="@drawable/button_tool_back_to_list" />
+
+	</LinearLayout>
+
+</RelativeLayout>
+
+
+
+

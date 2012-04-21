@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="status">Status:</string>
+    <string name="app_name">What2Buy</string>
+
+
+    <string name="button_edit">Edit</string>
+    <string name="button_end_edit">Finish</string>
+    <string name="button_clearlist">Clear</string>
+
+
+    <string name="button_delete">Delete</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_edit_ok">OK</string>
+    <string name="button_edit_cancel">Cancel</string>
+    <string name="button_edit_add">Add</string>
+
+    <string name="button_import_past">Past</string>
+    <string name="button_import_process">Process</string>
+    <string name="button_import_ok">OK</string>
+
+
+    <string name="button_start_edit">Edit</string>
+    <string name="button_ok_edit">OK</string>
+
+    <string name="cxtm_delete_item">Delete Item</string>
+    <string name="cxtm_mark_importent">Mark as importent</string>
+    <string name="cxtm_unmark_importent">Unmark importent</string>
+
+    <string name="cxtm_clear_title">Clear List?</string>
+    <string name="cxtm_clear_confirm">Yes</string>
+    <string name="cxtm_clear_cancel">No</string>
+</resources>

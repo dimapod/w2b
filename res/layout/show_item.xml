@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout android:id="@+id/item_layout" xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent" >
+
+	<TextView android:id="@+id/title" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:padding="10dp"
+		android:singleLine="true" android:layout_alignParentTop="true"
+		android:layout_alignParentLeft="true" android:paddingRight="0pt"
+		android:text="ITEM TITLE" android:textSize="20sp" />
+
+	<TextView android:id="@+id/quantity" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:paddingLeft="0dp"
+		android:paddingTop="10dp" android:paddingBottom="10dp"
+		android:textSize="20sp" android:singleLine="true" android:text="QUANTITY"
+		android:layout_alignParentTop="true" android:layout_toRightOf="@+id/title" />
+
+</RelativeLayout>
+

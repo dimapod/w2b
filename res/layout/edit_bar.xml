@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout android:id="@+id/panel_edit"
+	android:orientation="horizontal" xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="wrap_content"
+	android:background="#5D3E7A" 
+	android:visibility="visible">
+
+	<EditText android:id="@+id/e_edit" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:textSize="20sp"
+		android:singleLine="true" android:layout_weight="1" android:layout_marginTop="2dp" />
+
+	<Button android:id="@+id/b_edit_add" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:background="@drawable/button_tool_add"
+		android:layout_alignParentRight="true" />
+
+	<Button android:id="@+id/b_edit_ok" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:background="@drawable/button_tool_validate"
+		android:layout_alignParentRight="true" android:visibility="gone"/>
+</LinearLayout>
+
+
+

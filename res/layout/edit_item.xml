@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="fill_parent" android:layout_height="fill_parent">
+
+	<!-- <TextView android:id="@+id/e_edit" android:layout_width="wrap_content" 
+		android:layout_height="wrap_content" android:padding="10dp" android:singleLine="true" 
+		android:textColor="@android:color/white" android:layout_alignParentTop="true" 
+		android:layout_alignParentLeft="true" android:text="BBB" android:textSize="20sp" 
+		/> -->
+
+	<TextView android:id="@+id/full_title" android:layout_width="wrap_content"
+		android:layout_height="wrap_content" android:padding="10dp"
+		android:singleLine="true" android:textColor="@android:color/white"
+		android:layout_alignParentTop="true" android:layout_alignParentLeft="true"
+		android:text="BBB" android:textSize="20sp" />
+
+	<EditText android:id="@+id/edit_title" android:layout_width="fill_parent"
+		android:layout_height="wrap_content" android:background="@android:color/background_dark"
+		android:textColor="@android:color/darker_gray" android:height="72px"
+		android:paddingLeft="5pt" android:textSize="20sp" android:visibility="invisible" />
+		
+	<Button android:id="@+id/b_start_edit" android:text="@string/button_cancel"
+		android:width="65dp" android:height="10dp" android:paddingTop="2dp"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_alignParentTop="true" android:layout_alignParentRight="true"
+		android:visibility="invisible" android:textSize="14sp" />
+
+	<Button android:width="65dp" android:paddingTop="2dp"
+		android:id="@+id/b_ok_edit" android:text="@string/button_delete"
+		android:height="10dp" android:visibility="invisible"
+		android:layout_width="wrap_content" android:layout_height="wrap_content"
+		android:layout_alignParentTop="true" android:layout_alignParentRight="true"
+		android:textSize="14sp" />
+
+</RelativeLayout>
+
