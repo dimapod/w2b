@@ -40,7 +40,7 @@ public class BuyListActivity extends Activity {
 
 	private static int mode = Constantes.Modes.NORMAL;
 	private static int editPosition = -1;
-	// private static int utilsButtonPosition = -1;
+	private static int currentListId = -1;
 	private static boolean changed = false;
 
 	// Views References
@@ -231,11 +231,16 @@ public class BuyListActivity extends Activity {
 		}
 	}
 
+	/*
+	 * This method is called back when the activity opened from this activity terminates 
+	 * (it can optionnaly return some result) 
+	 */
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent intent) {
 		if (resultCode == Activity.RESULT_OK && requestCode == IMPORT_ITEMS) {
 			Bundle bundle = intent.getExtras();
 
+			// Data returned from the importActivity
 			String returnedData = bundle.getString(ImportActivity.IMPORTED_DATA_KEY);
 			if (returnedData != null && !returnedData.isEmpty()) {
 				String importMode = bundle.getString(ImportActivity.IMPORT_MODE_KEY);
@@ -245,7 +250,7 @@ public class BuyListActivity extends Activity {
 
 				String[] titlesToAdd = returnedData.split("\\n");
 				for (String title : titlesToAdd) {
-					ItemContainer.addItem(title);
+					ItemContainer.addItem(title, currentListId);
 				}
 
 				// Update
@@ -285,7 +290,7 @@ public class BuyListActivity extends Activity {
 		if (editPosition == -1) {
 			if (changedTitle.trim().length() != 0) {
 				// Add Item
-				ItemContainer.addItem(changedTitle);
+				ItemContainer.addItem(changedTitle, currentListId);
 				editTitle.setText("");
 				// Update
 				showListAdapter.notifyDataSetChanged();

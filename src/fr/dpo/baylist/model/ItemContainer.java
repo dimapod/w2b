@@ -16,15 +16,15 @@ import fr.dpo.baylist.utils.Constantes;
 public class ItemContainer {
 
 	private interface SaveConstantes {
-		int INDEX_ID = 0;
+		//int INDEX_ID = 0;
 		int INDEX_TITLE = 1;
 		int INDEX_IS_CHECKED = 2;
 		int INDEX_IS_IMPORTENT = 3;
+		int INDEX_LIST_ID = 4;
 	}
 
 	private static List<Item> items = new ArrayList<Item>();
-	private static Date lastChanged = new Date();;
-	private static int lastId = 0;
+	private static Date lastChanged = new Date();
 
 	public static Item getItemAt(int position) {
 		return items.get(position);
@@ -35,9 +35,9 @@ public class ItemContainer {
 		items.remove(position);
 	}
 
-	public static void addItem(String title) {
+	public static void addItem(String title, int listId) {
 		lastChanged = new Date();
-		items.add(new Item(lastId++, title));
+		items.add(new Item(title, listId));
 	}
 
 	public static void changeItemAt(int position, String title) {
@@ -45,11 +45,16 @@ public class ItemContainer {
 		Item item = items.get(position);
 		item.setTitle(title);
 	}
+	
+	public static void changeItemAt(int position, int listId) {
+		lastChanged = new Date();
+		Item item = items.get(position);
+		item.setListId(listId);
+	}
 
 	public static void clear() {
 		lastChanged = new Date();
 		items.clear();
-		lastId = 0;
 	}
 
 	public static int size() {
@@ -95,7 +100,7 @@ public class ItemContainer {
 				items.add(deserialize(line));
 			}
 		} catch (Exception e) {
-			items.add(new Item(-1, e.getMessage()));
+			items.add(new Item(e.getMessage(), 0));
 			lastChanged = new Date();
 		}
 	}
@@ -109,19 +114,21 @@ public class ItemContainer {
 		sb.append(Boolean.toString(item.isChecked()));
 		sb.append(Constantes.SaveConstantes.FIELD_SERAPATOR);
 		sb.append(Boolean.toString(item.isImportent()));
-
+		sb.append(Constantes.SaveConstantes.FIELD_SERAPATOR);
+		sb.append(Integer.toString(item.getListId()));
+		
 		return sb.toString();
 	}
 
 	private static Item deserialize(String str) {
 		String[] array = str.split(Constantes.SaveConstantes.FIELD_SERAPATOR);
 		try {
-			Item item = new Item(Integer.parseInt(array[SaveConstantes.INDEX_ID]), array[SaveConstantes.INDEX_TITLE]);
+			Item item = new Item(array[SaveConstantes.INDEX_TITLE], Integer.parseInt(array[SaveConstantes.INDEX_LIST_ID]));
 			item.setChecked(Boolean.parseBoolean(array[SaveConstantes.INDEX_IS_CHECKED]));
 			item.setImportent(Boolean.parseBoolean(array[SaveConstantes.INDEX_IS_IMPORTENT]));
 			return item;
 		} catch (Exception e) {
-			return new Item(-1, e.getMessage());
+			return new Item(e.getMessage(), 0);
 		}
 	}
 

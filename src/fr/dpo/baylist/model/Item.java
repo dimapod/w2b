@@ -7,15 +7,17 @@ public class Item {
 	private String title;
 	private boolean importent;
 	private boolean checked;
+	private int listId;
 
 	// parsed data
 	private ParsedItem parsedItem;
 
-	public Item(int id, String title) {
+	public Item(String title, int listId) {
 		super();
-		setId(id);
+		setId(0);
 		setTitle(title);
 		setChecked(false);
+		setListId(listId);
 	}
 
 	public int getId() {
@@ -59,6 +61,14 @@ public class Item {
 
 	public ParsedItem getParsedItem() {
 		return parsedItem;
+	}
+
+	public int getListId() {
+		return listId;
+	}
+
+	public void setListId(int listId) {
+		this.listId = listId;
 	}
 
 }
