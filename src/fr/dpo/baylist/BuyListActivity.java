@@ -23,6 +23,9 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
 import android.widget.Toast;
 import fr.dpo.baylist.adapters.ShowListAdapter;
@@ -51,6 +54,7 @@ public class BuyListActivity extends Activity {
 	private EditText editTitle = null;
 	private ViewGroup statusPanel = null;
 	private ViewGroup editPanel = null;
+	private RadioGroup radioList = null;
 
 	private TextView statusToBay = null;
 	private TextView statusAll = null;
@@ -72,6 +76,8 @@ public class BuyListActivity extends Activity {
 		toolEditMainPanel = (ViewGroup) findViewById(R.id.edit_tools_main);
 		editPanel = (ViewGroup) findViewById(R.id.panel_edit);
 		statusPanel = (ViewGroup) findViewById(R.id.status_bar);
+		
+		radioList = (RadioGroup) findViewById(R.id.rg_list);
 	}
 
 	@Override
@@ -114,6 +120,9 @@ public class BuyListActivity extends Activity {
 		buttonOkEdit.setOnClickListener(new AddOnClickListener());
 
 		editTitle.setOnKeyListener(new EditKeyListener());
+		
+		// RadioGroupe for list selection
+		radioList.setOnCheckedChangeListener(new RedioListListener());
 
 		// // == RESUME =========================
 		// // If an instance of this activity had previously stopped, we can
@@ -163,6 +172,16 @@ public class BuyListActivity extends Activity {
 	protected void onSaveInstanceState(Bundle outState) {
 		// Save away the original text, so we still have it if the activity needs to be killed while paused.
 		outState.putString(Constantes.StateData.EDIT_CONTENT, editTitle.getText().toString());
+	}
+	
+	public void onRadioListSelectionClicked(View v) {
+	    // Perform action on clicks
+	    RadioButton rb = (RadioButton) v;
+	    if (rb.getId() == R.id.radio_list1) {
+	    	currentListId = 1;
+	    } else {
+	    	currentListId = 2;
+	    }
 	}
 
 	// Listeners ///////////////////////////////////////////////////////////////////////////////////
@@ -279,6 +298,15 @@ public class BuyListActivity extends Activity {
 			}
 			return false;
 		}
+	}
+	
+	private class RedioListListener implements OnCheckedChangeListener {
+
+		public void onCheckedChanged(RadioGroup paramRadioGroup, int paramInt) {
+			// TODO Auto-generated method stub
+			
+		}
+		
 	}
 
 	public static int getToEditPosition() {
