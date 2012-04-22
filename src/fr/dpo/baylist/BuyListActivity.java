@@ -43,7 +43,7 @@ public class BuyListActivity extends Activity {
 
 	private static int mode = Constantes.Modes.NORMAL;
 	private static int editPosition = -1;
-	private static int currentListId = -1;
+	private static int currentListId = 1;
 	private static boolean changed = false;
 
 	// Views References
@@ -473,6 +473,10 @@ public class BuyListActivity extends Activity {
 
 	public static void setMode(int mode) {
 		BuyListActivity.mode = mode;
+	}
+
+	public static int getCurrentListId() {
+		return currentListId;
 	}
 
 }

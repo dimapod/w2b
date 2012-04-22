@@ -21,7 +21,8 @@ public class ShowListAdapter extends BaseAdapter {
 	private static final int LAYOUT = R.layout.show_item;
 
 	public interface ShowListColors {
-		int TEXT = Color.BLUE;
+		int TEXT_LIST1 = Color.BLUE;
+		int TEXT_LIST2 = Color.GREEN;
 		int TEXT_CHECKED = Color.GRAY;
 		int TEXT_QUANTITY = Color.parseColor("#50A5FF");
 	}
@@ -73,7 +74,6 @@ public class ShowListAdapter extends BaseAdapter {
 			quantityView.setVisibility(View.INVISIBLE);
 		}
 
-		
 		ViewGroup itemLayout = ((ViewGroup) layout.findViewById(R.id.item_layout));
 		if (BuyListActivity.getMode() != Constantes.Modes.EDIT) {
 			if (item.isChecked()) {
@@ -83,9 +83,14 @@ public class ShowListAdapter extends BaseAdapter {
 				quantityView.setTextColor(ShowListColors.TEXT_CHECKED);
 			} else {
 				titleView.getPaint().setStrikeThruText(false);
-				titleView.setTextColor(ShowListColors.TEXT);
 				quantityView.getPaint().setStrikeThruText(false);
-				quantityView.setTextColor(ShowListColors.TEXT_QUANTITY);
+				if (item.getListId() == 1) {
+					titleView.setTextColor(ShowListColors.TEXT_LIST1);
+					quantityView.setTextColor(ShowListColors.TEXT_LIST1);
+				} else {
+					titleView.setTextColor(ShowListColors.TEXT_LIST2);
+					quantityView.setTextColor(ShowListColors.TEXT_LIST2);
+				}
 			}
 		} else {
 			if (position == BuyListActivity.getToEditPosition()) {
@@ -93,15 +98,19 @@ public class ShowListAdapter extends BaseAdapter {
 			} else {
 				itemLayout.setBackgroundColor(parent.getContext().getResources().getColor(R.color.transparent));
 			}
-			
+
+			if (item.getListId() == 1) {
+				titleView.setTextColor(ShowListColors.TEXT_LIST1);
+				quantityView.setTextColor(ShowListColors.TEXT_LIST1);
+			} else {
+				titleView.setTextColor(ShowListColors.TEXT_LIST2);
+				quantityView.setTextColor(ShowListColors.TEXT_LIST2);
+			}
+
 			titleView.getPaint().setStrikeThruText(false);
-			titleView.setTextColor(ShowListColors.TEXT);
 			quantityView.getPaint().setStrikeThruText(false);
-			quantityView.setTextColor(ShowListColors.TEXT);
 		}
-		
-		
-		
+
 		return layout;
 	}
 
