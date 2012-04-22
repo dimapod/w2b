@@ -75,7 +75,7 @@ public class ShowListAdapter extends BaseAdapter {
 		}
 
 		ViewGroup itemLayout = ((ViewGroup) layout.findViewById(R.id.item_layout));
-		if (BuyListActivity.getMode() != Constantes.Modes.EDIT) {
+//		if (BuyListActivity.getMode() != Constantes.Modes.EDIT) {
 			if (item.isChecked()) {
 				titleView.getPaint().setStrikeThruText(true);
 				titleView.setTextColor(ShowListColors.TEXT_CHECKED);
@@ -92,24 +92,24 @@ public class ShowListAdapter extends BaseAdapter {
 					quantityView.setTextColor(ShowListColors.TEXT_LIST2);
 				}
 			}
-		} else {
+//		} else {
 			if (position == BuyListActivity.getToEditPosition()) {
 				itemLayout.setBackgroundColor(convertView.getContext().getResources().getColor(R.color.choice));
 			} else {
 				itemLayout.setBackgroundColor(parent.getContext().getResources().getColor(R.color.transparent));
 			}
 
-			if (item.getListId() == 1) {
-				titleView.setTextColor(ShowListColors.TEXT_LIST1);
-				quantityView.setTextColor(ShowListColors.TEXT_LIST1);
-			} else {
-				titleView.setTextColor(ShowListColors.TEXT_LIST2);
-				quantityView.setTextColor(ShowListColors.TEXT_LIST2);
-			}
-
-			titleView.getPaint().setStrikeThruText(false);
-			quantityView.getPaint().setStrikeThruText(false);
-		}
+//			if (item.getListId() == 1) {
+//				titleView.setTextColor(ShowListColors.TEXT_LIST1);
+//				quantityView.setTextColor(ShowListColors.TEXT_LIST1);
+//			} else {
+//				titleView.setTextColor(ShowListColors.TEXT_LIST2);
+//				quantityView.setTextColor(ShowListColors.TEXT_LIST2);
+//			}
+//
+//			titleView.getPaint().setStrikeThruText(false);
+//			quantityView.getPaint().setStrikeThruText(false);
+//		}
 
 		return layout;
 	}

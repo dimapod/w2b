@@ -30,4 +30,5 @@
     <string name="cxtm_clear_title">Clear List?</string>
     <string name="cxtm_clear_confirm">Yes</string>
     <string name="cxtm_clear_cancel">No</string>
+    <string name="cxtm_clear_done_items">Delete DONE items</string>
 </resources>

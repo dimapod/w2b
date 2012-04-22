@@ -16,7 +16,7 @@ import fr.dpo.baylist.utils.Constantes;
 public class ItemContainer {
 
 	private interface SaveConstantes {
-		//int INDEX_ID = 0;
+		// int INDEX_ID = 0;
 		int INDEX_TITLE = 1;
 		int INDEX_IS_CHECKED = 2;
 		int INDEX_IS_IMPORTENT = 3;
@@ -45,7 +45,7 @@ public class ItemContainer {
 		Item item = items.get(position);
 		item.setTitle(title);
 	}
-	
+
 	public static void changeItemAt(int position, int listId) {
 		lastChanged = new Date();
 		Item item = items.get(position);
@@ -55,6 +55,16 @@ public class ItemContainer {
 	public static void clear() {
 		lastChanged = new Date();
 		items.clear();
+	}
+
+	public static void clearDone() {
+		lastChanged = new Date();
+		for (int i = items.size() - 1; i >= 0; i--) {
+			Item item = items.get(i);
+			if (item.isChecked()) {
+				items.remove(i);
+			}
+		}
 	}
 
 	public static int size() {
@@ -116,14 +126,15 @@ public class ItemContainer {
 		sb.append(Boolean.toString(item.isImportent()));
 		sb.append(Constantes.SaveConstantes.FIELD_SERAPATOR);
 		sb.append(Integer.toString(item.getListId()));
-		
+
 		return sb.toString();
 	}
 
 	private static Item deserialize(String str) {
 		String[] array = str.split(Constantes.SaveConstantes.FIELD_SERAPATOR);
 		try {
-			Item item = new Item(array[SaveConstantes.INDEX_TITLE], Integer.parseInt(array[SaveConstantes.INDEX_LIST_ID]));
+			Item item = new Item(array[SaveConstantes.INDEX_TITLE],
+					Integer.parseInt(array[SaveConstantes.INDEX_LIST_ID]));
 			item.setChecked(Boolean.parseBoolean(array[SaveConstantes.INDEX_IS_CHECKED]));
 			item.setImportent(Boolean.parseBoolean(array[SaveConstantes.INDEX_IS_IMPORTENT]));
 			return item;

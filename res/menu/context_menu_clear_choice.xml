@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group>
+        <item android:id="@+id/cxtm_clear_confirm" android:title="@string/cxtm_clear_confirm" />
+        <item android:id="@+id/cxtm_clear_cancel" android:title="@string/cxtm_clear_cancel" />
+    </group>
+
+    <item android:id="@+id/cxtm_clear_done_items" android:title="@string/cxtm_clear_done_items" />
+</menu>

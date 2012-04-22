@@ -415,7 +415,7 @@ public class BuyListActivity extends Activity {
 			break;
 
 		case R.id.b_clear:
-			inflater.inflate(R.menu.context_menu_confirm_clear, menu);
+			inflater.inflate(R.menu.context_menu_clear_choice, menu);
 			menu.setHeaderTitle(R.string.cxtm_clear_title);
 			break;
 		}
@@ -446,6 +446,13 @@ public class BuyListActivity extends Activity {
 			// Update
 			showListAdapter.notifyDataSetChanged();
 			return true;
+		case R.id.cxtm_clear_done_items:
+			ItemContainer.clearDone();
+			// Modifications has been made
+			setChanged(true);
+			// Update
+			showListAdapter.notifyDataSetChanged();
+			
 		default:
 			return super.onContextItemSelected(item);
 		}

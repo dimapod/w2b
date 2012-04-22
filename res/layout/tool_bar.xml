@@ -41,12 +41,13 @@
             android:orientation="horizontal">
 
             <RadioButton android:id="@+id/radio_list1"
-                android:layout_width="wrap_content" 
-                android:layout_height="wrap_content" android:button="@drawable/button_tool_list1" 
-                android:onClick="onRadioListSelectionClicked" android:checked="true" />
+                android:layout_width="30dp"
+                android:layout_height="wrap_content" android:button="@drawable/button_tool_list1"
+                android:onClick="onRadioListSelectionClicked"
+                android:checked="true" />
 
             <RadioButton android:id="@+id/radio_list2"
-                android:layout_width="wrap_content"
+                android:layout_width="30dp"
                 android:layout_height="wrap_content" android:button="@drawable/button_tool_list2"
                 android:onClick="onRadioListSelectionClicked" />
         </RadioGroup>
